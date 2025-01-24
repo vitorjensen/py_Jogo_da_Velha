@@ -50,6 +50,23 @@ class Controle(object):
             pass
         self._limite()
 
+    def cursor(self):
+
+        cursor_y = 9
+        cursor_x = self.x_center - 3
+        if self.pos_y == 1:
+            cursor_y += 2
+        
+        if self.pos_y == 2:
+            cursor_y += 4
+        
+        if self.pos_x == 1:
+            cursor_x += 2
+        
+        if self.pos_x == 2:
+            cursor_x += 4
+        
+        self.stdscr.move(cursor_y, cursor_x)
 
 
 
@@ -69,4 +86,10 @@ class Controle(object):
 # 
 # ## MÉTODO ESPAÇO DO TABULEIRO ##
 # self.entrada = self.stdscr.getkey(): Deifinimos um atributo que receberá o método getkey()
+# As teclas 'a' e 'd' representam movimentos para esquerda e para a direita, enquanto as teclas 's' e 'w' representam movimentos para baixo e para cima
+# self._limites(): Logo após uma ação do jogador, o método _limites será chamado para verificarmos se o movimento ultrapassou ou não os limites do tabuleiro, ataualizando as posições relativas de forma correta.
+# 
+# ## MÉTODO CURSOR ##
+# cursor_x e cursor_y: São posições absolutas, com relação ao centro da tela do jogo  
+# self.stdscr.move(cursor_y, cursor_x): Após converter os movimentos relativos para posições absolutas, fazemos a chamada do método 'move' do objeto stdscr, que fará o posicionamento do cursor no local correto do tabuleiro 
 # #
